@@ -5,8 +5,10 @@ body{
     margin:  0 ;
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
-    background: url(../img/bg.jpg)  no-repeat;
+    background: url(../img/bg.jpg) no-repeat;
     background-size: cover;
+    line-height: normal;
+    background-size: 100% 100%;
 }
 *::after,
 *::before{
@@ -50,17 +52,18 @@ body{
     
 }
 .main_wild{
-    font-size: 220px;
+    font-size: 170px;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px rgb(255, 255, 255);
     text-transform: uppercase;
     text-align: center;
     position: absolute;
+    max-width: 1136px;
     width: 100%;
-    left: 50%;
-   transform: translateX(-50%);
    font-weight: 700;
-    
+   left: 50%;
+   transform: translateX(-50%);
+    padding-top: 65px;
     opacity: 0.5;
 
 }
@@ -260,17 +263,206 @@ body{
     font-weight: 500;
     margin-bottom: 13px;
 }
+
+
+/*-------skills------------------*/
 .skills__text{
     font-size: 14px;
     font-weight: 200;
     opacity: 0.6;
 }
 .skills__group{
-
+    padding-top: 100px;
 }
 .skills__box{
-    padding-top: 27px;
-    padding-left: 27px;
-    border-radius: 5px;
+    height:175px;
+    width: 430px;
+    border-radius: 10px;
     border: 1px solid #8b00bd;
+}
+
+.skills__content{
+    padding-left: 60px;
+    padding-top: 20px;
+}
+
+.skills_item{
+    position: relative;
+}
+
+.skills_items{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 75px;
+    padding-left: 65px;
+}
+.skills_items:last-child{
+    margin-bottom: 130px;
+}
+
+.skills__title{
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+.skills__number{
+    font-size: 100px;
+    font-weight: bold;
+    background: linear-gradient( #cc00cc 60%,#6600cc);
+    -webkit-background-clip: text;
+    font-stretch: extra-expanded;
+    -webkit-text-fill-color: transparent;
+    display: table;
+    position: absolute;
+    left:-70px;
+    bottom: -70px;
+}
+/*--------------education-------------*/
+
+
+.education__items{
+    padding:5px;
+    display: flex;
+    justify-content: space-between;
+}
+.education__item{
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+}
+
+.education__num{
+    margin-top: 100px;
+    font-size: 300px;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-align: center;
+   font-weight: bold;
+    z-index: 1;
+    opacity: 0.5;
+    line-height: 90%;
+}
+
+.education__title{
+    padding-left: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.education__img{
+    width: 100%;
+    position: absolute;
+    z-index: 10px;
+    bottom:18%;
+    left:50%;
+    transform: translateX(-50%);
+}
+.education__items:last-child{
+    padding-left: 220px;
+    padding-right: 220px;
+    margin-bottom: 70px;
+}
+
+
+/*------------programm-------*/
+.program{
+    margin-top: 160px;
+    margin-bottom: 160px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+  .accardion {
+    margin-top: 120px;
+    width: 1030px;
+    margin-bottom: 130px;
+  }
+  .accardion_item {
+    border-radius: 21px;
+    margin-bottom: 15px;
+    color: black;
+    overflow: hidden;
+    background-color: white;
+  }
+  .accardion_item .accardion_trigger.active {
+    background-color: #8b00bd;
+    color: white;
+  }
+  .accardion_item .accardion_trigger.active + .accardion_content {
+    transform: scaleY(1);
+    padding: 20px;
+  }
+  .accardion_item .accardion_trigger.active:after {
+    border-bottom: 14px solid white;
+    transform: rotate(180deg);
+  }
+  .accardion_item:nth-child(odd) .accardion_trigger {
+    background-color: white;
+    color: black;
+  }
+  .accardion_item:nth-child(odd) .accardion_trigger:hover {
+    color: white;
+    background-color: #8b00bd;
+  }
+  .accardion_item:nth-child(odd) .accardion_trigger:hover:after {
+    border-bottom: 14px solid white;
+  }
+  .accardion_item:nth-child(odd) .accardion_trigger.active {
+    background-color: #8b00bd;
+    color: white;
+  }
+  .accardion_trigger {
+    text-transform: uppercase;
+    font-size: 24px;
+    padding: 42px 54px;
+    border-radius: 21px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .accardion_trigger:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    border-bottom: 14px solid #8b00bd;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    transition: 0.3s;
+  }
+  .accardion_trigger:hover {
+    color: white;
+    background-color: #8b00bd;
+  }
+  .accardion_trigger:hover:after {
+    border-bottom: 14px solid white;
+  }
+  .accardion_content {
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: 0.3s;
+    max-height: 0;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 400px;
+    color: black;
+  }
+ul .acc{
+    padding-left: 54px;
+    list-style: square;
+}
+li .acc{
+    padding-left: 10px;
+    margin-left: 20px;
 }
