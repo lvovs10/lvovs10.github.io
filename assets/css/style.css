@@ -369,8 +369,8 @@ body{
 
 /*------------programm-------*/
 .program{
+    display: flex;
     margin-top: 160px;
-    margin-bottom: 160px;
 }
 
 ul {
@@ -381,6 +381,7 @@ ul {
     list-style: none;
   }
   .accardion {
+    margin: 120px auto 130px; 
     margin-top: 120px;
     width: 1030px;
     margin-bottom: 130px;
@@ -401,8 +402,10 @@ ul {
     padding: 20px;
   }
   .accardion_item .accardion_trigger.active:after {
-    border-bottom: 14px solid white;
-    transform: rotate(180deg);
+    
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
+    transform: rotate(45deg);
   }
   .accardion_item:nth-child(odd) .accardion_trigger {
     background-color: white;
@@ -413,7 +416,9 @@ ul {
     background-color: #8b00bd;
   }
   .accardion_item:nth-child(odd) .accardion_trigger:hover:after {
-    border-bottom: 14px solid white;
+    
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
   }
   .accardion_item:nth-child(odd) .accardion_trigger.active {
     background-color: #8b00bd;
@@ -431,14 +436,17 @@ ul {
     cursor: pointer;
   }
   .accardion_trigger:after {
+    transform: rotate(-45deg);
     content: '';
     display: block;
     position: absolute;
-    top: 16px;
-    right: 20px;
-    border-bottom: 14px solid #8b00bd;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
+    top:50px;
+    right: 40px;
+    height: 20px;
+    width: 20px;
+    color: transparent;
+    border-bottom: 3px solid #8b00bd;
+    border-right: 3px solid #8b00bd;
     transition: 0.3s;
   }
   .accardion_trigger:hover {
@@ -446,7 +454,8 @@ ul {
     background-color: #8b00bd;
   }
   .accardion_trigger:hover:after {
-    border-bottom: 14px solid white;
+    border-bottom: 3px solid white;
+    border-right: 3px solid white;
   }
   .accardion_content {
     transform-origin: top;
@@ -465,4 +474,35 @@ ul .acc{
 li .acc{
     padding-left: 10px;
     margin-left: 20px;
+}
+
+/*----------------rate-----------*/
+.rate__items{
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    margin-top: 150px;
+}
+.rate__simple{
+    position: relative;
+    height: 820px;
+    width: 380px;
+    border-radius: 15px;
+    background-color:  white;
+    border: 6px solid #666666;
+    z-index: 100;
+}
+.rate__content{
+    position: absolute;
+}
+.rate__back{
+    position: absolute;
+    z-index: -1;
+    background-color: #666666;
+    width: 313px;
+    height: 860px;
+    top: -20px;
+    left: 37px;
+    border-radius: 20px;
 }
