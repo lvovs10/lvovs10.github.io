@@ -36,6 +36,7 @@ body{
     width: 100%;
     justify-content:space-between;
     margin-bottom: 250px;
+    padding-left: 10px;
 
 }
 .main_title{
@@ -77,10 +78,10 @@ body{
 
 }
 
-.main_adv{
+.main__adv{
     max-width: 500px;
     width: 100%;
-       
+    padding-left: 10px;   
 }
 .main_adv_item{
     display:flex;
