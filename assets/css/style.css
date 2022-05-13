@@ -385,7 +385,7 @@ ul {
   .accardion {
     margin: 120px auto 130px; 
     margin-top: 120px;
-    width: 1030px;
+    max-width: 1030px;
     margin-bottom: 130px;
   }
   .accardion_item {
