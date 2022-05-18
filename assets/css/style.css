@@ -374,7 +374,10 @@ body{
     display: flex;
     margin-top: 160px;
 }
-
+.rate{
+    padding-left: 5px;
+    padding-right: 5px;
+}
 ul {
     margin: 0;
     padding: 0;
