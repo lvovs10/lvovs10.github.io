@@ -386,10 +386,8 @@ ul {
     list-style: none;
   }
   .accardion {
-    margin: 120px auto 130px; 
-    margin-top: 120px;
-    max-width: 1030px;
-    margin-bottom: 130px;
+    margin: 120px auto 130px;
+    max-width: 1000px;
   }
   .accardion_item {
     border-radius: 21px;
@@ -432,6 +430,7 @@ ul {
   .accardion_trigger {
     text-transform: uppercase;
     font-size: 20px;
+    padding: 42px 54px;
     border-radius: 21px;
     position: relative;
     overflow: hidden;
