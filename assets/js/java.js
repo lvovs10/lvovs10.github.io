@@ -1,30 +1,57 @@
-const accordions = document.querySelectorAll(".accordion");
+const accardion = document.querySelectorAll('.accardion');
 
-accordions.forEach((accordion) => {
-  const bttn = accordion.querySelector(".accordion__button");
-  const panel = accordion.querySelector(".accordion__panel");
-  const activeClassBtn = "accordion__button-active";
-  const activeClassPanel = "accordion__panel-active";
+accardion.forEach(item => item.addEventListener('click', clickActions));
 
-  bttn.addEventListener("click", (event) => {
-    event.preventDefault();
+function clickActions(event){
+	const target = event.target;
+	const isAccrodionTrigger = target.classList.contains('accardion_trigger');
+	if(isAccrodionTrigger) {
+		accordion(target);
+	}
+}
 
-    const active__bttn = document.querySelectorAll(
-      ".accordion .accordion__button-active"
-    );
-    active__bttn.forEach((el) =>
-      el !== bttn ? el.classList.remove(activeClassBtn) : null
-    );
-    bttn.classList.toggle(activeClassBtn);
+function accordion (target) {
+	const trigger = target;
+	const item = target.parentNode;
+	const content = item.querySelector('.accardion_content');
+	const accordeon = item.parentNode;
+	const triggerList = accordeon.querySelectorAll('.accardion_trigger');
+	const isActive = trigger.classList.contains('active');
+	
+	if(isActive) {
+		removeAllACtiveClasses(triggerList);
+		hideAllContent(accordeon);
+	} else {
+		removeAllACtiveClasses(triggerList);
+		hideAllContent(accordeon);
+		addActiveClass(trigger);
+		showContent(content);
+	}
+}
 
-    const active__panel = document.querySelectorAll(
-      ".accordion .accordion__panel-active"
-    );
-    active__panel.forEach((el) =>
-      el !== panel ? el.classList.remove(activeClassPanel) : null
-    );
-    panel.classList.toggle(activeClassPanel);
+function showContent(content) {
+		content.style.maxHeight = `${getContentHeight(content)}px`;
+}
 
-    panel.style.setProperty("--height", `${panel.scrollHeight}px`);
-  });
-});
+function hideAllContent(accordeon) {
+	const contentList = accordeon.querySelectorAll('.accardion_content');
+	
+	contentList.forEach(item => item.style.maxHeight = '0px');
+}
+
+function removeAllACtiveClasses(list) {
+	list.forEach(item => removeActiveClass(item));
+}	
+	
+function addActiveClass(item) {
+	item.classList.add('active');
+}
+
+function removeActiveClass(item) {
+	item.classList.remove('active');
+}
+
+function getContentHeight(content) {
+	return content.scrollHeight;
+}
+
