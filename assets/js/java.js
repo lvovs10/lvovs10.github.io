@@ -54,3 +54,4 @@ function removeActiveClass(item) {
 function getContentHeight(content) {
 	return content.scrollHeight;
 }
+document.querySelector('.accardion_trigger').style.width = document.querySelector('.accardion_trigger-inner').getBoundingClientRect().width + 'px';

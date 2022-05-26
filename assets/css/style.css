@@ -5,7 +5,7 @@ body{
     margin:  0 ;
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
-    background: url(../img/bg.jpg) no-repeat;
+    background: solid #1a082d no-repeat;
     background-size: cover;
     line-height: normal;
 }
@@ -428,6 +428,7 @@ ul {
     color: white;
   }
   .accardion_trigger {
+    display: inline-block;
     text-transform: uppercase;
     font-size: 20px;
     padding: 42px 54px;
