@@ -440,7 +440,7 @@ ul {
   }
   .accardion_trigger:after {
     transform: rotate(-45deg);
-    display: block;
+    display: inline-block;
     content: '';
     position: absolute;
     top:50px;
