@@ -28,3 +28,10 @@ accordions.forEach((accordion) => {
     panel.style.setProperty("--height", `${panel.scrollHeight}px`);
   });
 });
+function openForm() {
+    document.getElementById("MyForm").style.display = "block"; }
+function closeForm() {
+    document.getElementById("MyForm").style.display = "none";
+}
+
+
