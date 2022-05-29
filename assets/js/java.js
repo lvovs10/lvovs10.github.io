@@ -40,3 +40,31 @@ document.addEventListener('mousemove', e => {
 	y = Math.round(e.pageY / h * 100);
 	document.getElementById("MyForm").style.background = `radial-gradient(at ${x}% ${y}%,#340360, #220040)`;
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+	
+
+	const scrollItems = document.querySelectorAll('.scroll-item');
+
+	const scrollAnimation = () => {
+		let windowCenter = (window.innerHeight /1.3) + window.scrollY;
+		console.log(windowCenter)
+		scrollItems.forEach(el => {
+			let scrollOffset = el.offsetTop + (el.offsetHeight / 2);
+			if (windowCenter >= scrollOffset) {
+				el.classList.add('animation-class');
+			} else {
+				el.classList.remove('animation-class');
+			}
+		});
+	};
+
+	
+
+	
+	scrollAnimation();
+	window.addEventListener('scroll', () => {
+		
+		scrollAnimation();
+	});
+});

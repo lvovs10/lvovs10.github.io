@@ -144,12 +144,23 @@ img{
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
-    transition: all 0.1s ease;
-    
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.title.animation-class{
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease-in-out;
 }
 .title:hover{
     transform: scale(1.1);
     filter: drop-shadow(0 0 40px #fff);
+}
+.auditorium__title{
+    transform: translateY(0px);
+    opacity: 1;
 }
 .purple{
     color: #cc00cc;
@@ -165,6 +176,13 @@ img{
     padding-top: 50px;
     width: 100%;
     max-width: 340px;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+.auditorum__item.animation-class{
+    opacity: 1;
+    transform: translateY(0);
     transition: all 0.4s ease-in-out;
 }
 .auditorum__item:hover{
@@ -215,6 +233,14 @@ img{
     margin: 0 auto;
     text-align: center;
     position: relative;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(150px);
+}
+.this__circle.animation-class{
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease-in-out;
 }
 .this__circle_item{
     position: absolute;
@@ -288,6 +314,17 @@ img{
     text-align: center;
     padding-top: 28px;
 }
+
+.header.header__skills{
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+.header.header__skills.animation-class {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease-in-out;
+}
 .this_btn{
     text-align: center;
     margin: 54px auto 131px;
@@ -323,19 +360,31 @@ img{
 
 .skills_item{
     position: relative;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: translatex(-50px);
 }
-
+.skills_item:last-child{
+    transform: translatex(50px);
+}
 .skills_items{
     display: flex;
     justify-content: space-between;
     margin-bottom: 75px;
     padding-left: 75px;
     padding-right: 10px;
+    
 }
 
 .skills_items:last-child{
     margin-bottom: 130px;
 }
+.skills_items.animation-class .skills_item{
+    opacity: 1;
+    transform: translatex(0);
+    transition: all 0.4s ease-in-out;
+}
+
 
 .skills__title{
     font-size: 17px;
@@ -362,6 +411,14 @@ img{
     padding:5px;
     display: flex;
     justify-content: space-between;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+.education__items.animation-class {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease-in-out;
 }
 .education__item{
     text-align: center;
@@ -436,6 +493,14 @@ img{
     max-width: 1030px;
     padding-left: 5px;
     padding-right: 5px;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+.accordions.animation-class {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease-in-out;
 }
 .accordion {
     width: 100%;
@@ -471,11 +536,11 @@ img{
     position: relative;
     letter-spacing: 1px;
     font-weight: 600;
+    
   }
   
   .accordion__button::after {
     transition: transform 100ms;
-    
     width: 15px;
     height: 15px;
     display: block;
@@ -777,13 +842,14 @@ line-height: 30px;
 
 
 }
+
   .btn {
     font-weight: 700;
     font-size: 16px;
     font-family: sans-serif;
     text-transform: uppercase;
     position: relative;
-    padding: 1rem 3rem;
+    padding: 1.5rem 2rem;
     line-height: 1.5;
     color: black;
     text-decoration: none;
@@ -800,7 +866,16 @@ line-height: 30px;
     background: linear-gradient(90deg, #cc00cc, #6600cc, #cc00cc);
     background-size: 300%;
     border-radius: 20px;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
   }
+
+  .btn-gradient.animation-class{
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease-in-out;
+}
   .btn-gradient::before {
     position: absolute;
     content: "";
@@ -825,7 +900,10 @@ line-height: 30px;
       background-position: 300%;
     }
   }
-  
+  .btnf{
+    opacity: 1;
+    transform: translateY(0);
+}
 
 
 /*-------------------------cursor-----------------*/
