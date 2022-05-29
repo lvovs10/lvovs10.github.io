@@ -14,6 +14,7 @@
 </head>
 <body>
 <div class="wriper">
+    
 <section class="section main">
     <div class="container_abs">
         <div class="main_wild">
@@ -26,8 +27,8 @@
     
     <div class="container ">
        <div class="main_text">
-           <div class="main_title">9 апреля</div>
-           <div class="main_title">Длительность курса:1,5 месяца</div>
+           <div class="main_title"></div>
+           <div class="main_title"></div>
            
        </div>
        
@@ -51,7 +52,7 @@
             </div>
        </div>
        
-       <button class="main_btn" onclick="openForm()">Начать обучение</button>
+       <button class="btn btn-gradient" onclick="openForm()">Начать обучение</button>
     </div>
         
         
@@ -135,7 +136,7 @@
 
             <div class="this__circle_item circle7">
                 <div class="this_circle"></div>
-                <div class="this__circle_title">ДНе знаете, как вести себя в нынешней<br/>ситуации и в условиях кризиса</div>
+                <div class="this__circle_title">Не знаете, как вести себя в нынешней<br/>ситуации и в условиях кризиса</div>
             </div>
 
 
@@ -144,7 +145,7 @@
             
         </div>
         <div class="this_btn">
-            <button class="main_btn">Это про меня</button>
+            <button class="btn btn-gradient " onclick="openForm()">Это про меня</button>
         </div>
        </div>
         
@@ -154,7 +155,7 @@
     <div class="container">
         <div class="header">
             <div class="title "><span class="purple">Чему вы</span> научитесь?</div>
-            <div class="subtitle">ВАШ РЕЗУЛЬТАТСПУСТЯ 6 НЕДЕЛЬ</div>
+            <div class="subtitle">ВАШ РЕЗУЛЬТАТ СПУСТЯ 6 НЕДЕЛЬ</div>
             <div class="skills__text">Поймете в чем разница между самостоятельным выходом на маркетплейсы</br>и профессией менеджера. Выберите свой путь развития.
                </div>
         </div>
@@ -308,7 +309,7 @@
             
         </div>
         <div class="this_btn">
-            <button class="main_btn">НАУЧИТЕ МЕНЯ!</button>
+            <button class="btn btn-gradient" onclick="openForm()">НАУЧИТЕ МЕНЯ!</button>
         </div>
     </div>
 </div>
@@ -421,7 +422,7 @@
               </div>
               <div class="accordion__slot">
                 <div class="accordion__panel">
-                  <p class="accordion-panel__content">Установка цены, просчитываем по формулам Unit экономику</br>
+                  <p class="accordion-panel__content">- Установка цены, просчитываем по формулам Unit экономику</br>
                     - Визуальное оформление карточек товара</br>
                     - SEO для карточки, продвигаемся бесплатно </br>
                     - ABC анализ,  что это такое и как он поможет поднять больше денег</p>
@@ -473,8 +474,8 @@
                 </div>
                 <div class="accordion__slot">
                   <div class="accordion__panel">
-                    <p class="accordion-panel__content">Склад или фулфилмент? Что удобнее?</br>
-                        Как наладить работу с контрактным производством</p>
+                    <p class="accordion-panel__content">- Склад или фулфилмент? Что удобнее?</br>
+                       - Как наладить работу с контрактным производством</p>
                   </div>
                 </div>
             </div>
@@ -493,7 +494,7 @@
             </div>  
           </div>
         <div class="this_btn">
-            <button class="main_btn">узнать больше</button>
+            <button class="btn btn-gradient" onclick="openForm()">узнать больше</button>
         </div>    
     
 
@@ -508,7 +509,6 @@
         </div>
         <div class="rate__items">
             <div class="rate__simple">
-                <div class="rate__back"></div>
                 <div class="rate__content">
                     <div class="rate__title">team training</div>
                     <ul class="rate__info">
@@ -533,12 +533,11 @@
                         <div class="rate__price__new">25 000 Р</div>
                     </div>
                     <div class="this_btn rate__btn2">
-                        <button class="main_btn rate__btn">Выбрать тариф</button>
+                        <button class="btn btn-gradient" onclick="openForm()">Выбрать тариф</button>
                     </div>
                 </div>
             </div>
             <div class="rate__simple rate__special">
-                <div class="rate__back  rate__back__sp" ></div>
                 <div class="rate__content">
                     <div class="rate__title rate__title-prp">personal guidance</div>
                     <ul class="rate__info">
@@ -562,7 +561,7 @@
                         <div class="rate__price__new">50 000 Р</div>
                     </div>
                     <div class="this_btn rate__btn2">
-                        <button class="main_btn rate__btn">Выбрать тариф</button>
+                        <button class="btn btn-gradient" onclick="openForm()">Выбрать тариф</button>
                     </div>
 
                 </div>
@@ -574,6 +573,7 @@
     </div>
 </div>
 <div class="login-box" id="MyForm">
+    <a href="#" class="close-button" onclick="closeForm()">&#10006;</a>
     <h2>Записаться на курс</h2>
     <div class="suptitle__form">Мы свяжемся с вами и ответим на любые ваши вопросы</div>
     <form>
@@ -589,18 +589,15 @@
         <input type="text" name="" required="">
         <label>Номер телефона</label>
       </div>
-      
-      <a href="#">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Записаться
-      </a>
+      <button class="btn btn-gradient form__btn" >Записаться</button>
+      <div class="form_docs">
+          Нажимая на кнопку, я соглашаюсь на <a class="docs" href="#">обработку персональных 
+            данных</a> 
+      </div>
       
     </form>
   </div>
-
+ 
 
 <footer class="foot">
     <div class="container">
