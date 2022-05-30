@@ -33,6 +33,11 @@ function openForm() {
 function closeForm() {
     document.getElementById("MyForm").style.display = "none";
 }
+
+
+
+
+
 document.addEventListener('mousemove', e => {
 	w = window.innerWidth;
 	h = window.innerHeight;
@@ -45,9 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 
 	const scrollItems = document.querySelectorAll('.scroll-item');
-
+	const scrollItems1 = document.querySelectorAll('.scroll-item1');
 	const scrollAnimation = () => {
 		let windowCenter = (window.innerHeight /1.3) + window.scrollY;
+    
 		console.log(windowCenter)
 		scrollItems.forEach(el => {
 			let scrollOffset = el.offsetTop + (el.offsetHeight / 2);
@@ -58,13 +64,26 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 	};
-
+  const scrollAnimation1 = () => {
+		let windowCenter = (window.innerHeight /0.9) + window.scrollY;
+    
+		
+		scrollItems1.forEach(el => {
+			let scrollOffset = el.offsetTop + (el.offsetHeight / 2);
+			if (windowCenter >= scrollOffset) {
+				el.classList.add('animation-class');
+			} else {
+				el.classList.remove('animation-class');
+			}
+		});
+	};
+  
 	
 
-	
+	scrollAnimation1();
 	scrollAnimation();
 	window.addEventListener('scroll', () => {
-		
+		scrollAnimation1();
 		scrollAnimation();
 	});
 });

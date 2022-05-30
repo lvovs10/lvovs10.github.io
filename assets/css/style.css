@@ -8,6 +8,7 @@ body{
     background: url(../img/bg.jpg) no-repeat;
     background-size: cover;
     line-height: normal;
+    cursor: default;
 }
 *::after,
 *::before{
@@ -158,10 +159,7 @@ img{
     transform: scale(1.1);
     filter: drop-shadow(0 0 40px #fff);
 }
-.auditorium__title{
-    transform: translateY(0px);
-    opacity: 1;
-}
+
 .purple{
     color: #cc00cc;
 }
@@ -362,10 +360,10 @@ img{
     position: relative;
     transition: all 0.4s ease-in-out;
     opacity: 0;
-    transform: translatex(-50px);
+    transform: translatex(-150px);
 }
 .skills_item:last-child{
-    transform: translatex(50px);
+    transform: translatex(150px);
 }
 .skills_items{
     display: flex;
@@ -599,6 +597,14 @@ img{
     justify-content: space-between;
     margin-bottom: 60px;
     margin-top: 150px;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+.rate__items.animation-class {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease-in-out;
 }
 .rate__simple{
     position: relative;
@@ -733,8 +739,10 @@ line-height: 30px;
 .footer__icons a{
     margin-left: 20px;
 }
+
 /*--------------form-------------*/
 .login-box {
+    z-index: 100;
     display: none;
     position: fixed;
     top: 50%;
@@ -829,11 +837,13 @@ line-height: 30px;
     -webkit-box-shadow: -4px -2px 6px 0px rgba(0,0,0,0.1);
     -moz-box-shadow: -4px -2px 6px 0px rgba(0,0,0,0.1);
     box-shadow: -3px 1px 6px 0px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease-in-out;
 }
 
 .close-button:hover {
     background-color: tomato;
     color: #fff;
+    cursor: pointer;
 }
 /*---------------------------------Button--------*/
 
@@ -903,7 +913,7 @@ line-height: 30px;
     left:50%;
     opacity: 1;
     transform: translate(-50%,0);
-
+    
 }
 
 

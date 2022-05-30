@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width =1136">
 <link rel="stylesheet" href="assets/css/style.css">
+
 <script src="assets/js/one.js">  
 
 </script>
@@ -61,7 +62,7 @@
 </section>
 <div class="section auditorium">
     <div class="container">
-    <div class="auditorium__title title">
+    <div class="auditorium__title title scroll-item">
         <span class="purple">Кому</span> подойдет обучение
     </div>
     <div class="auditorum__items">
@@ -97,7 +98,7 @@
         <div class="title this__title scroll-item">
            Это про <span class="purple">вас</span>?
         </div>
-        <div class="this__circle scroll-item">
+        <div class="this__circle scroll-item1">
             <img src="assets/img/folder/circle.png" alt="">
             <div class="this__circle_item">
                 <div class="this_circle"></div>
@@ -389,7 +390,7 @@
         </div>
 
         
-        <div class="accordions scroll-item">
+        <div class="accordions scroll-item1">
             <div class="accordion">
               <div class="accordion__slot">
                 <button class="accordion__button">Модуль 1:   Начало положено</button>
@@ -507,7 +508,7 @@
         <div class=" title scroll-item">
             <span class="purple">Тарифы</span> курса
         </div>
-        <div class="rate__items">
+        <div class="rate__items scroll-item1">
             <div class="rate__simple">
                 <div class="rate__content">
                     <div class="rate__title">team training</div>
@@ -573,23 +574,23 @@
     </div>
 </div>
 <div class="login-box" id="MyForm">
-    <a href="#" class="close-button" onclick="closeForm()">&#10006;</a>
+    <a  class="close-button" onclick="closeForm()">&#10006;</a>
     <h2>Записаться на курс</h2>
     <div class="suptitle__form">Мы свяжемся с вами и ответим на любые ваши вопросы</div>
-    <form>
+    <form action="send.php" method="post">
       <div class="user-box">
-        <input type="text" name="" required="">
+        <input type="text" name="fio" required="">
         <label>Имя</label>
       </div>
       <div class="user-box">
-        <input type="text" name="" required="">
+        <input type="text" name="email" required="">
         <label>Электронная почта</label>
       </div>
       <div class="user-box">
-        <input type="text" name="" required="">
+        <input type="text" name="phone" required="">
         <label>Номер телефона</label>
       </div>
-      <button class="btn btn-gradient form__btn" >Записаться</button>
+      <input type="submit" class="btn btn-gradient form__btn" value="Записаться"></button>
       <div class="form_docs">
           Нажимая на кнопку, я соглашаюсь на <a class="docs" href="#">обработку персональных 
             данных</a> 
