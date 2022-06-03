@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	};
   const scrollAnimation1 = () => {
-		let windowCenter = (window.innerHeight /0.9) + window.scrollY;
+		let windowCenter = (window.innerHeight /0.95) + window.scrollY;
     
 		
 		scrollItems1.forEach(el => {

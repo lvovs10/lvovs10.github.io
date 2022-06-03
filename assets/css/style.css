@@ -863,6 +863,7 @@ line-height: 30px;
     user-select: none;
     white-space: nowrap;
     animation: glow 8s linear infinite;
+
   }
   .btn-gradient {
     color: white;
@@ -906,7 +907,9 @@ line-height: 30px;
   .btnf{
     opacity: 1;
     transform: translateY(0);
+    margin-left: 5px;
 }
+
 .form__btn{
     left:50%;
     opacity: 1;
