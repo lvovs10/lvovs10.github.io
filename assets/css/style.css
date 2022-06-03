@@ -360,11 +360,9 @@ img{
     position: relative;
     transition: all 0.4s ease-in-out;
     opacity: 0;
-    transform: translatex(-150px);
+    transform: translateY(50px);
 }
-.skills_item:last-child{
-    transform: translatex(150px);
-}
+
 .skills_items{
     display: flex;
     justify-content: space-between;
@@ -379,7 +377,7 @@ img{
 }
 .skills_items.animation-class .skills_item{
     opacity: 1;
-    transform: translatex(0);
+    transform: translateY(0px);
     transition: all 0.4s ease-in-out;
 }
 
