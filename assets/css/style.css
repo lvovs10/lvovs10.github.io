@@ -938,6 +938,15 @@ line-height: 30px;
     
      
  }
+ .main_text{
+    padding: 0 0px 0 0 ;
+    display: flex;
+    max-width: 200px;
+    width: 100%;
+    justify-content:space-between;
+    margin-bottom: 0px;
+
+}
  .main_photo{
     left: 50%;
     transform: translateX(-50%);
@@ -952,19 +961,14 @@ line-height: 30px;
      padding-left: 3px;
      max-width: 320px;
      margin-top: 0px;
-     padding-top: 400px;
+     padding-top: 350px;
     
  }
  .container_abs{
      max-width: 320px;
  }
- .main-text{
-     max-width: 300px;;
-     
- }
- .main_text{
-     margin-bottom: 310px;
- }
+ 
+ 
  .btnf{
      margin: 0 auto;
  }
@@ -1152,12 +1156,54 @@ display: none;
   .footer__sm{
     font-size: 14px;
 } 
+.footer__icons a img {
+    width: 17%;
+}
 .login-box {
     top: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%,-50%);
     left: 50%;
     max-width: 310px;
   }
-  
-  
+  .rate__price2{
+    text-align: center;
+    margin-top: 60px;
+    line-height: 30px;
+    
+    }
+    .login-box h2 {
+        margin: 0 0 10px;
+        margin-top: -20px;
+        font-size: 16px;
+        
+      }
+      .login-box .user-box input {       
+       
+        font-size: 20px;
+        margin-bottom: 12px;        
+      }
+      .login-box .user-box label {
+        
+        font-size: 12px;
+       
+      }
+      .form_docs{
+        margin-top: 15px;
+        font-size: 10px;
+        font-weight: 300;
+        
+    }  
+    .suptitle__form{
+        opacity: 0.8;
+        font-weight: 200;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .form__btn{     
+    font-size: 14px;         
+    padding: 1.3rem 3rem;
+    }
+
+
 }

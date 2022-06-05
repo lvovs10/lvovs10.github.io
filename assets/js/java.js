@@ -87,5 +87,3 @@ document.addEventListener('DOMContentLoaded', () => {
 		scrollAnimation();
 	});
 });
-var pageHeight = document.documentElement.clientHeight; //Высота страницы (документа)
-alert(pageHeight);
