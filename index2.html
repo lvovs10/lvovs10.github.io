@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Квест на день рождения Вероники</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #ff6b6b, #ff8e53, #c084fc, #4b0082);
+      background-size: 400% 400%;
+      animation: gradient 20s ease infinite;
+      position: relative;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.7c-46.8 17.7-109.5 27.7-184.3 27.7-74.8 0-137.5-10-184.3-27.7C384.5 39 321.8 0 247 0 172.2 0 109.5 39 62.7 56.7 15.8 74.3 0 74.3 0 74.3V88.7h800V74.3c0 0-15.8 0-62.7-17.6z' fill='%2381d4fa' fill-opacity='0.4'/%3E%3C/svg%3E");
+      animation: wave 7s linear infinite;
+    }
+    @keyframes wave {
+      0% { background-position: 0 0; }
+      100% { background-position: 800px 0; }
+    }
+    .stage {
+      display: none;
+    }
+    .stage.active {
+      display: block;
+    }
+    .stage-image {
+      width: 100%;
+      height: 300px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+    }
+    .stage0-image {
+      background-image: url('images/we.png');
+    }
+    .stage1-image {
+      background-image: url('images/Nevil1.png');
+    }
+    .stage2-image {
+      background-image: url('images/Nev2.png');
+    }
+    .stage3-image {
+      background-image: url('images/Nev3.png');
+    }
+    .stage4-image {
+      background-image: url('images/Nev5.png');
+    }
+    .stage5-image {
+      background-image: url('images/Nev6.png');
+    }
+    .stage6-image {
+      background-image: url('images/Nev7.png');
+    }
+    .stage7-image {
+      background-image: url('images/Nev8.png');
+    }
+    .stage8-image {
+      background-image: url('images/Nev9.png');
+    }
+    .stage9-image {
+      background-image: url('images/Final.png');
+    }
+    .stage-content {
+      min-height: 400px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .confetti-btn {
+      background: #ff69b4;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    .confetti-btn:hover {
+      background: #ff4d94;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100vh) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+    .image-option {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .image-option:hover {
+      transform: scale(1.05);
+      background: #549AF5;
+    }
+    .custom-photo {
+      max-width: 200px; /* Уменьшен размер центрального фото на этапе 3 */
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid #ff69b4;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center text-gray-800">
+  <div class="wave"></div>
+  <div class="container mx-auto p-4 max-w-md">
+    <!-- Начальный экран -->
+    <div id="stage0" class="stage active">
+      <div class="stage-image stage0-image"></div>
+      <div class="stage-content text-center">
+        <h1 class="text-4xl font-bold text-pink-600 mb-4">С днём рождения,Никусь! 🎉</h1>
+        <p class="text-lg mb-6">Сегодня твой особенный день, и я подготовил для тебя самый лучший подарок! Но фаблежуйчику он тоже понравился, поэтому он его стыбзилю Придется его догонять, в погоню!</p>
+        <button onclick="nextStage(1)" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600">Вернуть подарок</button>
+      </div>
+    </div>
+
+    <!-- Тест 1: Выбор любимого цветка -->
+    <div id="stage1" class="stage">
+      <div class="stage-image stage1-image"></div>
+      <div class="stage-content text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">Этап 1: Строгий хозяин</h2>
+        <p class="mb-4">Мой хозяин меня любит, но из-за чего он ругается?</p>
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <label>
+            <input type="radio" name="image1" value="1" class="hidden">
+            <p class="mb-4 image-option w-full rounded-lg border" >Выебываюсь</p>
+          </label>
+          <label>
+            <input type="radio" name="image1" value="2" class="hidden">
+            <p class="mb-4 image-option w-full rounded-lg border" >Люблю тапочки</p>
+          </label>
+          <label>
+            <input type="radio" name="image1" value="3" class="hidden">
+            <p class="mb-4 image-option w-full rounded-lg border" >Пописал на платье</p>
+          </label>
+          <label>
+            <input type="radio" name="image1" value="4" class="hidden">
+            <p class="mb-4 image-option w-full rounded-lg border" >Насрал в ТЦ</p>
+          </label>
+        </div>
+        <button onclick="checkImageAnswer(1, '1', 2)" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600">Проверить</button>
+        <p id="hint1" class="text-sm text-gray-500 mt-2 hidden">Подсказка: ну тут она не нужна❤️</p>
+        <button onclick="showHint(1)" class="text-sm text-pink-400 underline mt-2">Нужна подсказка?</button>
+      </div>
+    </div>
+
+    <!-- Тест 2: Выбор места первого свидания -->
+    <div id="stage2" class="stage">
+      <div class="stage-image stage2-image"></div>
+      <div class="stage-content text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">Этап 2: Странная жидкость</h2>
+        <p class="mb-4">Моя хозяйка,что-то капает странное в ухо,для чего это?</p>
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <label>
+            <input type="radio" name="image2" value="cafe" class="hidden">
+            <p class="mb-4 image-option w-full rounded-lg border" >Для мозгов</p>
+          </label>
+          <label>
+            <input type="radio" name="image2" value="park" class="hidden">
+            <p class="mb-4 image-option w-full rounded-lg border" >Чтобы не срал, где попало</p>
+          </label>
+          <label>
+            <input type="radio" name="image2" value="beach" class="hidden">
+            <p class="mb-4 image-option w-full rounded-lg border" >Чтобы вырос здоровой Апчаркой</p>
+          </label>
+          <label>
+            <input type="radio" name="image2" value="cinema" class="hidden">
+            <p class="mb-4 image-option w-full rounded-lg border" >Чтобы побесить</p>
+          </label>
+        </div>
+        <button onclick="checkImageAnswer(2, 'beach', 3)" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600">Проверить</button>
+        <p id="hint2" class="text-sm text-gray-500 mt-2 hidden">Подсказка: Ты серьезно?</p>
+        <button onclick="showHint(2)" class="text-sm text-pink-400 underline mt-2">Нужна подсказка?</button>
+      </div>
+    </div>
+
+    <!-- Этап 3: Ваше фото -->
+    <div id="stage3" class="stage">
+      <div class="stage-image stage3-image"></div>
+      <div class="stage-content text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">Этап 3: Догоняем</h2>
+        <p class="mb-4">Ты уже почти меня догнала! 💖 Вот моя охана кстати</p>
+        <img src="images/ohana.jpg" alt="Ваше фото" class="custom-photo mx-auto mb-4">
+        <button onclick="nextStage(4)" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600">Дальше</button>
+      </div>
+    </div>
+
+    <!-- Этап 4: Шифр "Любимая мелодия" -->
+    <div id="stage4" class="stage">
+      <div class="stage-image stage4-image"></div>
+      <div class="stage-content text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">Этап 4: Имя</h2>
+        <p class="mb-4">Каким именем вы хотели меня назвать? Оно же подходит мне больше!</p>
+        <input id="answer4" type="text" placeholder="Введи название " class="w-full p-2 mb-4 border rounded-lg">
+        <button onclick="checkAnswer(4, 'Стич', 5)" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600">Проверить</button>
+        <p id="hint4" class="text-sm text-gray-500 mt-2 hidden">Подсказка: Это могло быть АСТЕРОИД-ДЕСТРОИТ!</p>
+        <button onclick="showHint(4)" class="text-sm text-pink-400 underline mt-2">Нужна подсказка?</button>
+      </div>
+    </div>
+
+    <!-- Этап 5: Шифр "Цветовой код" -->
+    <div id="stage5" class="stage">
+      <div class="stage-image stage5-image"></div>
+      <div class="stage-content text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">Этап 5: Твои цвета</h2>
+        <p class="mb-4">Ты всегда выглядишь потрясающе! Вспомни платье, которое ты надела на нашу первую встречу. Какие два главных цвета были в том образе?</p>
+        <input id="answer5" type="text" placeholder="Введи два цвета (через пробел)" class="w-full p-2 mb-4 border rounded-lg">
+        <button onclick="checkAnswer(5, 'Серый черный', 6)" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600">Проверить</button>
+        <p id="hint5" class="text-sm text-gray-500 mt-2 hidden">Подсказка: Вначале тот, что был светлее.</p>
+        <button onclick="showHint(5)" class="text-sm text-pink-400 underline mt-2">Нужна подсказка?</button>
+      </div>
+    </div>
+
+    <!-- Этап 6: Шифр "Эмодзи-история" -->
+    <div id="stage6" class="stage">
+      <div class="stage-image stage6-image"></div>
+      <div class="stage-content text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">Этап 6: Эмодзи-тайна</h2>
+        <p class="mb-4">Где мы были, на нашей первой встрече? Назови место!</p>
+        <input id="answer6" type="text" placeholder="Введи место" class="w-full p-2 mb-4 border rounded-lg">
+        <button onclick="checkAnswer(6, 'O! Cuba', 7)" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600">Проверить</button>
+        <p id="hint6" class="text-sm text-gray-500 mt-2 hidden">Подсказка: Родина сигар в этом названии, остальное ищи сама).</p>
+        <button onclick="showHint(6)" class="text-sm text-pink-400 underline mt-2">Нужна подсказка?</button>
+      </div>
+    </div>
+
+    <!-- Этап 7: Шифр "Код воспоминаний" -->
+    <div id="stage7" class="stage">
+      <div class="stage-image stage7-image"></div>
+      <div class="stage-content text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">Этап 7: Время не тикает</h2>
+        <p class="mb-4">А во сколько мы с тобой встретились.Дата и время? </p>
+        <input id="answer7" type="text" placeholder="Введи слово" class="w-full p-2 mb-4 border rounded-lg">
+        <button onclick="checkAnswer(7, '18.01 15:14', 8)" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600">Проверить</button>
+        <p id="hint7" class="text-sm text-gray-500 mt-2 hidden">Подсказка: сколько тебе лет было вчера.самый популярный рождественский фильм без последнего слова     кол-во слов люблю в нашем диалоге минус кол-во слов сильно люблю, потом поделить на 5: Регион Саха(Якутия)</p>
+        <button onclick="showHint(7)" class="text-sm text-pink-400 underline mt-2">Нужна подсказка?</button>
+      </div>
+    </div>
+
+    <div id="stage8" class="stage">
+      <div class="stage-image stage8-image"></div>
+      <div class="stage-content text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">Этап 8: Любовь</h2>
+        <p class="mb-4">Сколько раз за лень я сказал, что тебя люблю</p>
+        <input id="answer8" type="text" placeholder="Введи слово" class="w-full p-2 mb-4 border rounded-lg">
+        <button onclick="checkAnswer(8, '30', 9)" class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600">Проверить</button>
+        <p id="hint8" class="text-sm text-gray-500 mt-2 hidden">Подсказка: а вот надо было считать</p>
+        <button onclick="showHint(8)" class="text-sm text-pink-400 underline mt-2">Нужна подсказка?</button>
+      </div>
+    </div>
+
+    <!-- Финальный этап -->.
+    <div id="stage9" class="stage">
+      <div class="stage-image stage9-image"></div>
+      <div class="stage-content text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">Финал: Ты его догнала! 🎁</h2>
+        <p class="mb-4">Ты молодец, Моя любовь! Твой подарок ждёт тебя там, где находится твоя вторая половинка!</p>
+        <p class="mb-4">С днём рождения, моя самая невероятная девушка! Теперь время посмотреть видео. Жду поцелуй и поехали дальше💖 </p>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Переход к следующему этапу
+    function nextStage(stage) {
+      document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+      const nextStageElement = document.getElementById(`stage${stage}`);
+      if (nextStageElement) {
+        nextStageElement.classList.add('active');
+        console.log(`Перешли к этапу ${stage}`);
+      } else {
+        console.error(`Этап stage${stage} не найден`);
+      }
+    }
+
+    // Проверка ответа для текстовых вопросов
+    function checkAnswer(stage, correctAnswer, nextStageId) {
+      const input = document.getElementById(`answer${stage}`);
+      if (!input) {
+        console.error(`Поле ввода для этапа ${stage} не найдено`);
+        alert('Ошибка. Пожалуйста, попробуйте снова.');
+        return;
+      }
+      const answer = input.value.trim().toLowerCase();
+      console.log(`Введённый ответ: "${answer}" | Ожидаемый: "${correctAnswer.toLowerCase()}"`);
+      if (answer === correctAnswer.toLowerCase()) {
+        alert('Правильно! Переходим к следующему этапу!');
+        input.value = ''; // Очищаем поле ввода
+        nextStage(nextStageId);
+      } else {
+        alert('Попробуй ещё раз! Может, подсказка поможет?');
+      }
+    }
+
+    // Проверка ответа для тестов с картинками
+    function checkImageAnswer(stage, correctAnswer, nextStageId) {
+      const selected = document.querySelector(`input[name="image${stage}"]:checked`);
+      if (!selected) {
+        alert('Выбери один вариант!');
+        return;
+      }
+      const answer = selected.value;
+      console.log(`Выбранный ответ: "${answer}" | Ожидаемый: "${correctAnswer}"`);
+      if (answer === correctAnswer) {
+        alert('Правильно! Переходим к следующему этапу!');
+        document.querySelectorAll(`input[name="image${stage}"]`).forEach(input => input.checked = false); // Сбрасываем выбор
+        nextStage(nextStageId);
+      } else {
+        alert('Попробуй ещё раз! Может, подсказка поможет?');
+      }
+    }
+
+    // Показать подсказку
+    function showHint(stage) {
+      const hint = document.getElementById(`hint${stage}`);
+      if (hint) {
+        hint.classList.remove('hidden');
+        console.log(`Подсказка для этапа ${stage} показана`);
+      }
+    }
+
+    // Конфетти для финала
+   function launchConfetti() {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ff69b4', '#ff8e53', '#c084fc'],
+        disableForReducedMotion: true
+      });
+      // Останавливаем конфетти через 3 секунды
+      setTimeout(() => {
+        confetti.reset();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

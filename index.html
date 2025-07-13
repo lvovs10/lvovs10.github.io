@@ -1,638 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<link rel="stylesheet" href="assets/css/style.css">
-<script src="assets/js/one.js">  
-
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-<title>Kon'</title> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Письмо Веронике</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #ff6b6b, #ff8e53, #c084fc, #4b0082);
+      background-size: 400% 400%;
+      animation: gradient 20s ease infinite;
+      position: relative;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .container {
+      width: 90vw;
+      max-width: 390px; /* Под iPhone 13 */
+      margin: 0 auto;
+      padding: 15px;
+    }
+    .content {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      text-align: center;
+    }
+    .letter-text {
+      font-size: 0.9rem;
+      color: #4b5563;
+      line-height: 1.5;
+      margin-top: 15px;
+      min-height: 200px;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .letter-btn {
+      background: #ff69b4;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.3s;
+      margin: 10px 5px;
+      display: inline-block;
+    }
+    .letter-btn:hover {
+      background: #ff4d94;
+    }
+    .heart-btn {
+      background: #ff69b4;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+    .heart-btn:hover {
+      background: #ff4d94;
+    }
+  </style>
 </head>
 <body>
-<div class="wriper">
-    
-<section class="section main">
-    <div class="container_abs">
-        <div class="main_wild">
-            Wildberries
-        </div>
-        <div class="main_photo">
-            <img class="main_photos" src="assets/img/main/photo.png" alt="">
-        </div>
-    </div>
-    
-    <div class="container ">
-       <div class="main_text">
-           <div class="main_title"></div>
-           <div class="main_title"></div>
-           
-       </div>
-       
-       
-       <div class="main__adv">
-           <div class="main_adv_item">
-               <div class="main_circle"></div>
-               <div class="main_adv_text">Вы станете экспертом по работе на Wildberries</div>
-           </div>
-           <div class="main_adv_item">
-            <div class="main_circle"></div>
-            <div class="main_adv_text">Получите актуальные навыки от опытных практиков.</div>
-            </div>
-            <div class="main_adv_item">
-                <div class="main_circle"></div>
-                <div class="main_adv_text">Разберете на практике - от регистрации в личном кабинете до отгрузки товара на маркетплейс.</div>
-            </div>
-            <div class="main_adv_item">
-                <div class="main_circle"></div>
-                <div class="main_adv_text">Поймете как работают аглоритмы по продвижению ваших товаров.</div>
-            </div>
-       </div>
-       
-       <button class="btn btn-gradient btnf" onclick="openForm()">Начать обучение</button>
-    </div>
-        
-        
-    
+  <div class="container">
+    <div class="content">
+      <h1 class="text-2xl font-bold text-pink-600 mb-3">Письмо</h1>
+      <p class="text-base mb-4 text-center">Никусь, не передать словами как я тебя люблю, поэтому попробую письмом 💖</p>
+      <div id="letter-text" class="letter-text"></div>
+      <button class="heart-btn" onclick="launchHearts()">Запустить сердечки! 💖</button>
+      <div class="mt-4">
 
-</section>
-<div class="section auditorium">
-    <div class="container">
-    <div class="auditorium__title title scroll-item">
-        <span class="purple">Кому</span> подойдет обучение
-    </div>
-    <div class="auditorum__items">
-        <div class="auditorum__item scroll-item">
-            <img src="assets/img/folder/ракета.png" alt="" class="auditorum__photo">
-            <div class="auditorum__item_text">
-            <div class="auditorum__item_title">Начинуающим бизнесменам</div>
-            <div class="auditorum__item_subtitle">которые планируют начать  продавать с нуля.</div>
-            </div>
-        </div>
-
-        <div class="auditorum__item scroll-item">
-            <img src="assets/img/folder/диаграмма.png" alt="" class="auditorum__photo">
-            <div class="auditorum__item_text">
-            <div class="auditorum__item_title">Предпринимателям с опытом</div>
-            <div class="auditorum__item_subtitle">у которых уже есть магазин и кто ищет новые каналы продаж.</div>
-            </div>
-        </div>
-
-        <div class="auditorum__item scroll-item">
-            <img src="assets/img/folder/деньги.png" alt="" class="auditorum__photo">
-            <div class="auditorum__item_text">
-            <div class="auditorum__item_title">Менеджерам по продажам</div>
-            <div class="auditorum__item_subtitle">которые помогают компаниям  с продвижением их товаров на площадках.</div>
-            </div>
-        </div>
-    </div>
-
-</div>
-</div>
-<div class="this_for_you">
-    <div class="container">
-        <div class="title this__title scroll-item">
-           Это про <span class="purple">вас</span>?
-        </div>
-        <div class="this__circle scroll-item1">
-            <img src="assets/img/folder/circle.png" alt="">
-            <div class="this__circle_item">
-                <div class="this_circle"></div>
-                <div class="this__circle_title">Хотите начать свой бизнес на WB,<br> но не знаете с чего начать?</div>
-            </div>
-
-            <div class="this__circle_item circle1">
-                <div class="this_circle"></div>
-                <div class="this__circle_title">Боитесь больших закупок товаров</div>
-            </div>
-            
-            <div class="this__circle_item circle2">
-                <div class="this_circle"></div>
-                <div class="this__circle_title">Вышли на WB, <br/>а продажи ниже ожидаемых</div>
-            </div>
-
-            <div class="this__circle_item circle3">
-                <div class="this_circle"></div>
-                <div class="this__circle_title">Тратите на рекламу,<br/>а результата нет</div>
-            </div>
-
-            <div class="this__circle_item circle4">
-                <div class="this_circle"></div>
-                <div class="this__circle_title">Хотите автоматизировать<br/>процесс работы</div>
-            </div>
-
-            <div class="this__circle_item circle5">
-                <div class="this_circle"></div>
-                <div class="this__circle_title">Товары поселились на<br/>последних страницах поиска</div>
-            </div>
-
-            <div class="this__circle_item circle6">
-                <div class="this_circle"></div>
-                <div class="this__circle_title">Делаете самовыкупы<br/>и ничего не происходит</div>
-            </div>
-
-            <div class="this__circle_item circle7">
-                <div class="this_circle"></div>
-                <div class="this__circle_title">Не знаете, как вести себя в нынешней<br/>ситуации и в условиях кризиса</div>
-            </div>
-
-
-
-
-            
-        </div>
-        <div class="this_btn ">
-            <button class="btn btn-gradient scroll-item" onclick="openForm()">Это про меня</button>
-        </div>
-       </div>
-        
-        
-    </div>
-<div class="skills">
-    <div class="container">
-        <div class="header header__skills scroll-item">
-            <div class="title scroll-item"><span class="purple">Чему вы</span> научитесь?</div>
-            <div class="subtitle">ВАШ РЕЗУЛЬТАТ СПУСТЯ 6 НЕДЕЛЬ</div>
-            <div class="skills__text">Поймете в чем разница между самостоятельным выходом на маркетплейсы и профессией менеджера. Выберите свой путь развития.
-               </div>
-        </div>
-        <div class="skills__group">
-            <div class="skills_items scroll-item">
-                <div class="skills_item scroll-item">
-                    <div class="skills__number">01</div>
-                    <div class="skills__box">
-                        <div class="skills__content">
-                            <div class="skills__title">ПОЙМЕТЕ ПРИНЦИПЫ</div>
-                            <div class="skills__text">Обозначите ваши цели. Узнаете принципы работы маркетплейсов. Поймете, в чем  сходство и различия маркетплейсов и выберете площадку, подходящую вам.</div>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="skills_item scroll-item">
-                    <div class="skills__number">02</div>
-                    <div class="skills__box">
-                        <div class="skills__content">
-                            <div class="skills__title">Выберите стратегию</div>
-                            <div class="skills__text">Выберете свою стратегию работы на торговых 
-                                площадках. Выберете подходящую систему 
-                                налогообложения. Узнаете юридические аспекты 
-                                товарного бизнеса и, какой товар подлежит 
-                                сертификации.</div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills_items scroll-item">
-                <div class="skills_item scroll-item">
-                    <div class="skills__number">03</div>
-                    <div class="skills__box">
-                        <div class="skills__content">
-                            <div class="skills__title">ВЫЙДЕТЕ НА МАРКЕТПЛЕЙС</div>
-                            <div class="skills__text">Поймете, нужно ли вам на этом этапе 
-                                регистрировать собственный бренд. 
-                                Подготовите документы для выхода 
-                                на маркетплейс и зарегистрируетесь.</div>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="skills_item scroll-item">
-                    <div class="skills__number">04</div>
-                    <div class="skills__box">
-                        <div class="skills__content">
-                            <div class="skills__title">Проведете анализ</div>
-                            <div class="skills__text">Проанализируете ниши и найдете
-                                высокомаржинальный товар для успешного 
-                                старта на маркетплейсе. Проанализируете
-                                рынок и сделаете мониторинг конкурентов: 
-                                прогноз, конкурентные преимущества, цены.</div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills_items scroll-item">
-                <div class="skills_item scroll-item">
-                    <div class="skills__number">05</div>
-                    <div class="skills__box">
-                        <div class="skills__content">
-                            <div class="skills__title">Первая закупка</div>
-                            <div class="skills__text">Определитесь, какой товар вы будете
-                                продавать, кто его производит или поставляет. 
-                                Сделаете свою первую закупку.</div>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="skills_item scroll-item">
-                    <div class="skills__number">06</div>
-                    <div class="skills__box">
-                        <div class="skills__content">
-                            <div class="skills__title">Карточка товара</div>
-                            <div class="skills__text">Создадите привлекательную карточку товара 
-                                и сгенерируете правильный контент. 
-                                Сформируете цену на товар</div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills_items scroll-item">
-                <div class="skills_item scroll-item">
-                    <div class="skills__number">07</div>
-                    <div class="skills__box">
-                        <div class="skills__content">
-                            <div class="skills__title">Упаковка и отгрузка</div>
-                            <div class="skills__text">Выбрали схему работы со складом, удобную
-                                для вас. Узнали правила упаковки и отгрузки
-                                товаров, которые нельзя нарушать.</div>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="skills_item scroll-item">
-                    <div class="skills__number">08</div>
-                    <div class="skills__box">
-                        <div class="skills__content">
-                            <div class="skills__title">Отчетность и аналитика</div>
-                            <div class="skills__text">Узнаете разные формы отчетности и научитесь
-                                грамотно пользоваться новыми инструментами 
-                                аналитики. Вычислите рентабельность 
-                                и узнаете, какие товары, категории и ниши 
-                                приносят наибольшую прибыль.</div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills_items scroll-item">
-                <div class="skills_item scroll-item">
-                    <div class="skills__number">09</div>
-                    <div class="skills__box">
-                        <div class="skills__content">
-                            <div class="skills__title">Рекламные компании</div>
-                            <div class="skills__text">Узнаете, как настраивать рекламные кампании 
-                                внутри маркетплейса. Научитесь правильно 
-                                позиционировать и развивать ваш бренд, 
-                                сами начнете производить товар</div>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="skills_item scroll-item">
-                    <div class="skills__number">10</div>
-                    <div class="skills__box">
-                        <div class="skills__content">
-                            <div class="skills__title">Начнете мыслить<br/>как предприниматель</div>
-                            <div class="skills__text">Обретете мышление предпринимателя, пройдут
-                                прошлые страхи и убеждения о том, что вы 
-                                чего-то не можете. Собрали команду своей мечты, 
-                                в которой каждый будет отвечатьза свое дело</div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        <div class="this_btn">
-            <button class="btn btn-gradient scroll-item" onclick="openForm()">НАУЧИТЕ МЕНЯ!</button>
-        </div>
-    </div>
-</div>
-<div class="education">
-    <div class="container">
-        <div class="header">
-            <div class="title scroll-item">кому подходит <span class="purple">обучение</span></div>    
-        </div>
-        <div class="education__group">
-            <div class="education__items ">
-                <div class="education__item scroll-item">
-                    <div class="education__num">1</div>
-                   
-                        <div class="education__img">
-                            <img src="assets/img/folder/ГОРА.png" alt="" class="img_ed">
-                        </div>
-                        <div class="education__title">Проходите обучайщий курс</div>
-                    
-                </div>
-
-                <div class="education__item scroll-item">
-                    <div class="education__num">2</div>
-                    
-                        <div class="education__img">
-                            <img src="assets/img/folder/ДИАЛОГ.png" alt="" class="img_ed">
-                        </div>
-                        <div class="education__title">по окончанию каждого<br/> модуля тестирование</div>
-                    
-                </div>
-
-
-                <div class="education__item scroll-item">
-                    <div class="education__num">3</div>
-                    
-                        <div class="education__img">
-                            <img src="assets/img/folder/ДАРТС.png" alt="" class="img_ed">
-                        </div>
-                        <div class="education__title">выполняете домашнее<br/> задание</div>
-                    
-                </div>
-            </div>
-            <div class="education__items ">
-                <div class="education__item scroll-item">
-                    <div class="education__num">4</div>
-                   
-                        <div class="education__img">
-                            <img src="assets/img/folder/ДИАГРАММА1.png" alt="" class="img_ed">
-                        </div>
-                        <div class="education__title">Прохождение практики</div>
-                    
-                </div>
-
-                <div class="education__item scroll-item">
-                    <div class="education__num">5</div>
-                    
-                        <div class="education__img">
-                            <img src="assets/img/folder/phone.png" alt="" class="img_ed">
-                        </div>
-                        <div class="education__title">работа<br/>над ошибками</div>
-                    
-                </div>
-
-
-                
-            </div>
-        </div>
-
-
-
-    </div>
-</div>
-
-<div class="program">
-    <div class="container">
-        <div class=" title scroll-item">
-            <span class="purple">Программа</span> курса
-        </div>
-
-        
-        <div class="accordions scroll-item1">
-            <div class="accordion">
-              <div class="accordion__slot">
-                <button class="accordion__button">Модуль 1:   Начало положено</button>
-              </div>
-              <div class="accordion__slot">
-                <div class="accordion__panel">
-                  <p class="accordion-panel__content">- Знакомство с маркетплейсами</br>
-                    - Открытие юридического лица</br>
-                    - Регистрации на маркетплейсах WB и KE</br>
-                   - Общий чат курса</p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion">
-              <div class="accordion__slot">
-                <button class="accordion__button">модуль 2. Погружаемся в бизнес</button>
-              </div>
-              <div class="accordion__slot">
-                <div class="accordion__panel">
-                  <p class="accordion-panel__content">- Разбор личного кабинета</br>
-                    - Регистрация и разбор мобильного приложения WB Partners</br>
-                    - Знакомство с сервисом аналитики </br>
-                    - Аналитика и отчеты</p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion">
-              <div class="accordion__slot">
-                <button class="accordion__button">модуль 3. Пока считать не научимся, дальше не идем</button>
-              </div>
-              <div class="accordion__slot">
-                <div class="accordion__panel">
-                  <p class="accordion-panel__content">- Установка цены, просчитываем по формулам Unit экономику</br>
-                    - Визуальное оформление карточек товара</br>
-                    - SEO для карточки, продвигаемся бесплатно </br>
-                    - ABC анализ,  что это такое и как он поможет поднять больше денег</p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion">
-              <div class="accordion__slot">
-                <button class="accordion__button">модуль 4. Упаковали как для себя</button>
-              </div>
-              <div class="accordion__slot">
-                <div class="accordion__panel">
-                  <p class="accordion-panel__content">- Подготовка этикеток и штрихкодов вашего товара и закупка расходных материалов</br>
-                    - Требования к этикеткам. Проверка штрихкодов на читаемость. Программы-сканеры для штрихкодов</br>
-                    - Требования к упаковке и укладке товара + примеры для разных категорий </br>
-                    - Внешняя упаковка. Типы коробов и правильная укладка товара</p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion">
-              <div class="accordion__slot">
-                <button class="accordion__button">модуль 5. Ну все отгрузились</button>
-              </div>
-              <div class="accordion__slot">
-                <div class="accordion__panel">
-                  <p class="accordion-panel__content">- Оформление поставки. Обзор 4 типов поставок</br>
-                   - Первые продажи, отзывы и работа с клиентами</br>
-                   - Акции и правила участия. Аналитика продаж на WB </br>
-                   - Работа из регионов</p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion">
-                <div class="accordion__slot">
-                  <button class="accordion__button">модуль 6. Хочу в топ</button>
-                </div>
-                <div class="accordion__slot">
-                  <div class="accordion__panel">
-                    <p class="accordion-panel__content">- Мои методы выхода в ТОП, бесплатные инструменты и фишки</br>
-                       - Настройка внутренней рекламы на WB</br>
-                       - Внешняя реклама</br>
-                       - Техническое задание, которое принесет вам миллионы рублей</p>
-                  </div>
-                </div>
-              </div>
-            <div class="accordion">
-                <div class="accordion__slot">
-                  <button class="accordion__button">модуль 7.  Сами суетимся или грузим других</button>
-                </div>
-                <div class="accordion__slot">
-                  <div class="accordion__panel">
-                    <p class="accordion-panel__content">- Склад или фулфилмент? Что удобнее?</br>
-                       - Как наладить работу с контрактным производством</p>
-                  </div>
-                </div>
-            </div>
-            <div class="accordion">
-                <div class="accordion__slot">
-                  <button class="accordion__button">модуль 8. Все для старта на KazanExpress </button>
-                </div>
-                <div class="accordion__slot">
-                  <div class="accordion__panel">
-                    <p class="accordion-panel__content">- Создаем карточку товара</br>
-                       - Отгрузка товара с любого региона</br>
-                       - Продвижение товара и аналитика
-                    </p>
-                  </div>
-                </div>
-            </div>  
-          </div>
-        <div class="this_btn acc_btn">
-            <button class="btn btn-gradient scroll-item" onclick="openForm()">узнать больше</button>
-        </div>    
-    
-
-
-    </div>
-</div>
-
-<div class="rate">
-    <div class="container">
-        <div class=" title scroll-item">
-            <span class="purple">Тарифы</span> курса
-        </div>
-        <div class="rate__items scroll-item1">
-            <div class="rate__simple">
-                <div class="rate__content">
-                    <div class="rate__title">team training</div>
-                    <ul class="rate__info">
-                        <li>— 8 основных модулей</li>
-                        <li>— Проверка домашних заданий<br/>
-                            с куратором</li>
-                        <li>— Доступ к урокам на 6 месецев</li>
-                        <li>— Чат с поддержкой куратора</li>
-                        <li>— Общие созвоны в Zoom</li>
-                    </ul>
-                    <ul class="rate__info rate__grey">
-                        <li>— Созвоны со мной,буду курировать <br/>
-                            по всем моментам работы в течении <br/>
-                            2-х месецев</li>
-                        <li>— Урок по автоматизации бренда</li>
-                        <li>— Бонусные материалы по поиску <br/>
-                            продающегося товара</li>
-                        <li>— Модуль по закупке товаров</li>
-                    </ul>
-                    <div class="rate__price">
-                        <div class="rate__price__old">60 000 Р</div>
-                        <div class="rate__price__new">25 000 Р</div>
-                    </div>
-                    <div class="this_btn rate__btn2">
-                        <button class="btn btn-gradient scroll-item" onclick="openForm()">Выбрать тариф</button>
-                    </div>
-                </div>
-            </div>
-            <div class="rate__simple rate__special">
-                <div class="rate__content">
-                    <div class="rate__title rate__title-prp">personal guidance</div>
-                    <ul class="rate__info">
-                        <li>— 8 основных модулей</li>
-                        <li>— Проверка домашних заданий<br/>
-                            с куратором</li>
-                        <li>— Доступ к урокам на 6 месецев</li>
-                        <li>— Чат с поддержкой куратора</li>
-                        <li>— Общие созвоны в Zoom</li>
-                        <li>— Созвоны со мной,буду курировать <br/>
-                            по всем моментам работы в течении <br/>
-                            2-х месецев</li>
-                        <li>— Урок по автоматизации бренда</li>
-                        <li>— Бонусные материалы по поиску <br/>
-                            продающегося товара</li>
-                        <li>— Модуль по закупке товаров</li>
-                    </ul>
-                    
-                    <div class="rate__price2">
-                        <div class="rate__price__old">80 000 Р</div>
-                        <div class="rate__price__new">50 000 Р</div>
-                    </div>
-                    <div class="this_btn rate__btn2">
-                        <button class="btn btn-gradient scroll-item" onclick="openForm()">Выбрать тариф</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        
-
-
-    </div>
-</div>
-
-    <div class="login-box" id="MyForm">
-        <a  class="close-button" onclick="closeForm()">&#10006;</a>
-        <h2>Записаться на курс</h2>
-        <div class="suptitle__form">Мы свяжемся с вами и ответим на любые ваши вопросы</div>
-        <form action="send.php" method="post">
-          <div class="user-box">
-            <input type="text" name="fio" required="">
-            <label>Имя</label>
-          </div>
-          <div class="user-box">
-            <input type="text" name="email" required="">
-            <label>Электронная почта</label>
-          </div>
-          <div class="user-box">
-            <input type="text" name="phone" required="">
-            <label>Номер телефона</label>
-          </div>
-          <input type="submit" class="btn btn-gradient form__btn" value="Записаться"></button>
-          <div class="form_docs">
-              Нажимая на кнопку, я соглашаюсь на <a class="docs" href="#">обработку персональных 
-                данных</a> 
-          </div>
-          
-        </form>
+        <a href="galary.html" class="letter-btn">К воспоминаниям</a>
       </div>
-
-
- 
-
-<footer class="foot">
-    <div class="container">
-        <div class="footer__items">
-            <div class="footer__docs">
-                <a href="">© 2022 Все права защищены</a>
-                <a href="#">Политика конфиденциальности</a>
-                <a href="assets/docs/Политика_компании_в_отношении_обработки_персональных_данных.pdf" target="_blank" download>Согласие на обработку данных</a>
-                <a href="assets/docs/договор .pdf" download target="_blank">Оферта</a><br/>
-                <a href="#">Разработка сайта WWS</a>
-            </div>
-            <div class="footer__sm">
-                Ип Коннов Артём Сергеевич<br/><br/>
-
-                ОГРНИП 321028000049435<br/>
-                ИНН 026827184051
-                <div class="footer__icons">
-                    <a href="https://t.me/Artem_Konnov" target="_blank"><img src="assets/img/sm/teleg.png" alt="" class="class__sm_icons"></a>
-                    <a href="https://instagram.com/_artem_konnov_?igshid=YmMyMTA2M2Y=" target="_blank"><img src="assets/img/sm/inst.png" alt="" class="class__sm_icons"></a>
-                    <a href="http://wa.me/79871409456/" target="_blank"><img src="assets/img/sm/wp.png" alt="" class="class__sm_icons"></a>
-                </div>
-            </div>
-        </div>
     </div>
+  </div>
+
+  <script>
+    const letterContent = "Моя любовь, каждый день с тобой становится незабываемым. Твоя улыбка — мой свет, а твои мечты — мои цели.Я хочу делать твой каждый день особенным, а сегодняшний - самым лучшим за все время. Люблю тебя бесконечно!💕 Переходи к галерее воспоминаний ";
     
-</footer>
+    function typeLetter() {
+      const letterText = document.getElementById('letter-text');
+      let index = 0;
+      letterText.textContent = '';
+      letterText.style.opacity = 1; // Показываем текст сразу
+      const typing = setInterval(() => {
+        if (index < letterContent.length) {
+          letterText.textContent += letterContent[index];
+          index++;
+        } else {
+          clearInterval(typing);
+        }
+      }, 50); // Скорость печати
+    }
 
-</div>
-<script src="assets/js/java.js"></script>
+    function launchHearts() {
+      confetti({
+        particleCount: 60,
+        spread: 80,
+        shapes: ['heart'],
+        colors: ['#ff69b4', '#ff1493', '#c084fc'],
+        origin: { y: 0.3 },
+        disableForReducedMotion: true
+      });
+      setTimeout(() => {
+        confetti.reset();
+      }, 3000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      typeLetter();
+      launchHearts(); // Сердечки при загрузке
+    });
+  </script>
 </body>
-
 </html>
